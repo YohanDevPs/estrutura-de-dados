@@ -152,7 +152,7 @@ public class ListaDuplamenteLigada<T> {
         return resultado;
     }
 
-    private boolean estaVazia() {
+    public boolean estaVazia() {
         return this.tamanho == 0;
     }
 

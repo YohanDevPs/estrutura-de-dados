@@ -2,10 +2,13 @@ package br.com.estruturadados.main;
 
 import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.Stack;
 
+import br.com.estruturadados.filas.Fila;
 import br.com.estruturadados.listasligadas.ListaDuplamenteLigada;
 import br.com.estruturadados.listasligadas.ListaLigada;
 import br.com.estruturadados.modelos.Pessoa;
+import br.com.estruturadados.pilhas.Pilha;
 import br.com.estruturadados.vetores.Vetor;
 
 public class Main {
@@ -17,34 +20,67 @@ public class Main {
 		System.out.println("2. Vetores");
 		System.out.println("3. Lista Ligada");
 		System.out.println("4. Lista Duplamente Ligada");
-		
+		System.out.println("5. Pilha");
+		System.out.println("6. Fila");
+
 		Scanner scanner = new Scanner(System.in);
 		int opcao = scanner.nextInt();
 		
 		switch (opcao) {
-		case 1: {
-			fazerGerenciamentoMemoria();
-			break;
+			case 1: {
+				fazerGerenciamentoMemoria();
+				break;
+			}
+			case 2: {
+				fazerVetor();
+				break;
+			}
+			case 3: {
+				fazerListaLigada();
+				break;
+			}
+			case 4: {
+				fazerListaDuplamenteLigada();
+				break;
+			}
+			case 5: {
+				fazerPilha();
+				break;
+			}
+			case 6: {
+				fazerFila();
+				break;
+			}
 		}
-		case 2: {
-			fazerVetor();
-			break;
-		}
-		case 3: {
-			fazerListaLigada();
-			break;
-		}
-
-		case 4: {
-			fazerListaDuplamenteLigada();
-			break;
-		}
-	}
 		scanner.close();
 }
 
+	private static void fazerFila() {
+		Fila<Pessoa> filaPessoas = new Fila<Pessoa>();
+		System.out.println(filaPessoas.estaVazia());
+		filaPessoas.enfileirar(new Pessoa(1, "Joao"));
+		filaPessoas.enfileirar(new Pessoa(2, "Yohan"));
+		filaPessoas.enfileirar(new Pessoa(3, "Camila"));
+		System.out.println(filaPessoas);
+		Pessoa p1 = filaPessoas.desfileirar();
+		System.out.println(p1.toString());
+		System.out.println(filaPessoas);
+	}
+
+	private static void fazerPilha() {
+		Pilha<Pessoa> pilhaPessoas = new Pilha<Pessoa>();
+		System.out.println(pilhaPessoas.estaVazia());
+		pilhaPessoas.empilhar(new Pessoa(1, "Joao"));
+		pilhaPessoas.empilhar(new Pessoa(2, "Yohan"));
+		pilhaPessoas.empilhar(new Pessoa(3, "Camila"));
+		pilhaPessoas.empilhar(new Pessoa(4, "Elisa"));
+		Pessoa p1 = pilhaPessoas.desempilhar();
+		System.out.println(p1.toString());
+	}
+
 	private static void fazerListaDuplamenteLigada() {
 		ListaDuplamenteLigada<Pessoa> lista = new ListaDuplamenteLigada<Pessoa>();
+		LinkedList<Pessoa> lissta = new LinkedList<Pessoa>();
 		lista.inserir(new Pessoa(1, "Joao"));
 		lista.inserir(new Pessoa(2, "Leticia"));
 		Pessoa p1 = new Pessoa(3, "Yohan");
