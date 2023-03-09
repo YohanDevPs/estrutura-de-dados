@@ -1,7 +1,6 @@
 package br.com.estruturadados.vetores;
 
 import java.util.Arrays;
-import java.util.Iterator;
 
 public class Vetor<T> {
 
@@ -71,8 +70,8 @@ public class Vetor<T> {
 			T elem = recuperar(i);
 			if(elem != null && elem.equals(elemento)) {
 				return true;
-			};
-		};
+			}
+		}
 		return false;
 	}
 	
