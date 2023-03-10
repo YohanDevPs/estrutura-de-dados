@@ -1,15 +1,14 @@
 package br.com.estruturadados.main;
 
-import java.util.LinkedList;
 import java.util.Scanner;
-import java.util.Stack;
 
-import br.com.estruturadados.filas.Fila;
-import br.com.estruturadados.listasligadas.ListaDuplamenteLigada;
-import br.com.estruturadados.listasligadas.ListaLigada;
-import br.com.estruturadados.modelos.Pessoa;
-import br.com.estruturadados.pilhas.Pilha;
-import br.com.estruturadados.vetores.Vetor;
+import br.com.estruturadados.main.conjuntos.Conjunto;
+import br.com.estruturadados.main.filas.Fila;
+import br.com.estruturadados.main.listasligadas.ListaDuplamenteLigada;
+import br.com.estruturadados.main.listasligadas.ListaLigada;
+import br.com.estruturadados.main.modelos.Pessoa;
+import br.com.estruturadados.main.pilhas.Pilha;
+import br.com.estruturadados.main.vetores.Vetor;
 
 public class Main {
 
@@ -22,6 +21,7 @@ public class Main {
 		System.out.println("4. Lista Duplamente Ligada");
 		System.out.println("5. Pilha");
 		System.out.println("6. Fila");
+		System.out.println("7. Conjunto");
 
 		Scanner scanner = new Scanner(System.in);
 		int opcao = scanner.nextInt();
@@ -51,9 +51,25 @@ public class Main {
 				fazerFila();
 				break;
 			}
+			case 7: {
+				fazerConjunto();
+				break;
+			}
 		}
 		scanner.close();
 }
+
+	private static void fazerConjunto() {
+		Conjunto<Pessoa> conjuntosPessoas = new Conjunto<Pessoa>();
+		System.out.println(conjuntosPessoas.estaVazio());
+		System.out.println(conjuntosPessoas.inserir(new Pessoa(1, "Yohan")));
+		System.out.println(conjuntosPessoas.toString());
+		System.out.println(conjuntosPessoas.inserir(new Pessoa(2, "Yohan")));
+		System.out.println(conjuntosPessoas.toString());
+		System.out.println(conjuntosPessoas.inserirEm(0, new Pessoa(2, "Yohan")));
+		System.out.println(conjuntosPessoas.toString());
+
+	}
 
 	private static void fazerFila() {
 		Fila<Pessoa> filaPessoas = new Fila<Pessoa>();
@@ -80,7 +96,6 @@ public class Main {
 
 	private static void fazerListaDuplamenteLigada() {
 		ListaDuplamenteLigada<Pessoa> lista = new ListaDuplamenteLigada<Pessoa>();
-		LinkedList<Pessoa> lissta = new LinkedList<Pessoa>();
 		lista.inserir(new Pessoa(1, "Joao"));
 		lista.inserir(new Pessoa(2, "Leticia"));
 		Pessoa p1 = new Pessoa(3, "Yohan");
