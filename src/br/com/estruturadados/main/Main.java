@@ -68,7 +68,6 @@ public class Main {
 		System.out.println(conjuntosPessoas.toString());
 		System.out.println(conjuntosPessoas.inserirEm(0, new Pessoa(2, "Yohan")));
 		System.out.println(conjuntosPessoas.toString());
-
 	}
 
 	private static void fazerFila() {
