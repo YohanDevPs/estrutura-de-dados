@@ -1,6 +1,6 @@
 package br.com.estruturadados.main;
 
-import java.util.Scanner;
+import java.util.*;
 
 import br.com.estruturadados.main.conjuntos.Conjunto;
 import br.com.estruturadados.main.filas.Fila;
@@ -13,8 +13,8 @@ import br.com.estruturadados.main.vetores.Vetor;
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("Digite a opção desejada: ");		
-		
+		System.out.println("Digite a opção desejada: ");
+
 		System.out.println("1. Gerenciamento de memória");
 		System.out.println("2. Vetores");
 		System.out.println("3. Lista Ligada");
@@ -63,11 +63,9 @@ public class Main {
 		Conjunto<Pessoa> conjuntosPessoas = new Conjunto<Pessoa>();
 		System.out.println(conjuntosPessoas.estaVazio());
 		System.out.println(conjuntosPessoas.inserir(new Pessoa(1, "Yohan")));
-		System.out.println(conjuntosPessoas.toString());
+		System.out.println(conjuntosPessoas);
 		System.out.println(conjuntosPessoas.inserir(new Pessoa(2, "Yohan")));
-		System.out.println(conjuntosPessoas.toString());
-		System.out.println(conjuntosPessoas.inserirEm(0, new Pessoa(2, "Yohan")));
-		System.out.println(conjuntosPessoas.toString());
+		System.out.println(conjuntosPessoas);
 	}
 
 	private static void fazerFila() {
