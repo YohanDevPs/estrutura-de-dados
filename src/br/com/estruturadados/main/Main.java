@@ -2,6 +2,9 @@ package br.com.estruturadados.main;
 
 import java.util.*;
 
+import br.com.estruturadados.main.arvorebinaria.Arvore;
+import br.com.estruturadados.main.arvorebinaria.NoArvore;
+import br.com.estruturadados.main.arvorebinaria.NoArvorePessoa;
 import br.com.estruturadados.main.conjuntos.Conjunto;
 import br.com.estruturadados.main.filas.Fila;
 import br.com.estruturadados.main.listasligadas.ListaDuplamenteLigada;
@@ -10,6 +13,7 @@ import br.com.estruturadados.main.mapas.Mapa;
 import br.com.estruturadados.main.modelos.Pessoa;
 import br.com.estruturadados.main.pilhas.Pilha;
 import br.com.estruturadados.main.vetores.Vetor;
+import com.sun.source.tree.Tree;
 
 public class Main {
 
@@ -24,6 +28,7 @@ public class Main {
 		System.out.println("6. Fila");
 		System.out.println("7. Conjunto");
 		System.out.println("8. Mapa");
+		System.out.println("9. Arvore Binária");
 
 		Scanner scanner = new Scanner(System.in);
 		int opcao = scanner.nextInt();
@@ -61,9 +66,45 @@ public class Main {
 				fazerMapa();
 				break;
 			}
+			case 9: {
+				fazerArvoreBinaria();
+				break;
+			}
 		}
 		scanner.close();
 }
+
+	private static void fazerArvoreBinaria() {
+		Arvore<Pessoa> arvorePessoas = new Arvore<Pessoa>();
+		System.out.println(arvorePessoas);
+
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(5, "Yohan")));
+		System.out.println(arvorePessoas);
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(4, "Camila")));
+		System.out.println(arvorePessoas);
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(6, "Matheus")));
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(1, "Jessica")));
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(8, "Carlos")));
+		System.out.println(arvorePessoas);
+
+		System.out.println("Busca...");
+		NoArvore<Pessoa> noPessoa4 = new NoArvorePessoa(new Pessoa(4, "Camila"));
+		System.out.println(arvorePessoas.buscar(noPessoa4));
+
+		System.out.println("****************");
+		System.out.println("*** EM ORDEM ***");
+		arvorePessoas.emOrdem();
+		System.out.println("*****************");
+		System.out.println("*** PRE ORDEM ***");
+		arvorePessoas.preOrdem();
+		System.out.println("*****************");
+		System.out.println("*** POS ORDEM ***");
+		arvorePessoas.posOrdem();
+		System.out.println("*****************");
+		System.out.println("*** ALTURA ***");
+		System.out.println(arvorePessoas.altura());
+	}
+
 
 	private static void fazerMapa() {
 		Mapa<String, Pessoa> mapaPessoas = new Mapa<>();
